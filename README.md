@@ -3,3 +3,4 @@
 2. Day 2, total of wrapper paper and ribbon
 3. Day 3, deliver presents to houses, sum of total unique delivers
 4. Day 4, adventcoin, mining algorithm using md5
+5. Day 5, differentiate between naughty and nice string
