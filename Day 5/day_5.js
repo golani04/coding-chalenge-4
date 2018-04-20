@@ -27,4 +27,26 @@ fs.readFile('./input.txt', 'utf-8', (err, data) => {
   }, 0);
 
   console.log(totalStrings);
+  console.log('=== Part 2 ===');
+
+  const totalStrings2 = data.reduce((total, str) => {
+    let doubleLetters = false;
+    let repeatOneLetter = false;
+    for (let i = 0, len = str.length - 1; i < len; i++) {
+      let pair = `${str[i]}${str[i+1]}`;
+      if (!doubleLetters && str.slice(i + 2, len + 1).indexOf(pair) > -1) {
+        doubleLetters = true;
+      }
+      if (!repeatOneLetter && str[i] === str[i+2]) {
+        repeatOneLetter = true;
+      }
+      if (repeatOneLetter && doubleLetters) {
+        break;
+      }
+    }
+
+    return (repeatOneLetter && doubleLetters) ? total + 1 : total;
+  }, 0);
+
+  console.log(totalStrings2);
 });
